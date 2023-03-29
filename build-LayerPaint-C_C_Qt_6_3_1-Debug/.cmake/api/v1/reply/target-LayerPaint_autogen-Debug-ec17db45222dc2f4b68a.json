@@ -1,0 +1,65 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "LayerPaint_qmlimportscan::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "LayerPaint_autogen::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "LayerPaint_autogen",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_autogen.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

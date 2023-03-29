@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/LayerPaint_autogen",
+	"CMAKE_BINARY_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/LayerPaint",
+	"CMAKE_SOURCE_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/LayerPaint",
+	"INCLUDE_DIR" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/LayerPaint_autogen/include",
+	"INPUTS" : 
+	[
+		"/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/LayerPaint/main.qml"
+	],
+	"LOCK_FILE" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_autogen.dir/AutoRcc_qml_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "qml" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_qml.cpp",
+	"RCC_EXECUTABLE" : "/opt/Qt6.3.1/6.3.1/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_autogen.dir/AutoRcc_qml_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/root/study/\u5f00\u6e90\u8f6f\u4ef6\u676f/Layerpaint/Open-SourceSoftware/LayerPaint/qml.qrc",
+	"VERBOSITY" : 0
+}

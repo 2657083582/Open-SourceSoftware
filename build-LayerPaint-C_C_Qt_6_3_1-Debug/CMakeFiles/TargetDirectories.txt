@@ -1,0 +1,5 @@
+/root/study/开源软件杯/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint.dir
+/root/study/开源软件杯/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_qmlimportscan.dir
+/root/study/开源软件杯/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/edit_cache.dir
+/root/study/开源软件杯/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/rebuild_cache.dir
+/root/study/开源软件杯/Layerpaint/Open-SourceSoftware/build-LayerPaint-C_C_Qt_6_3_1-Debug/CMakeFiles/LayerPaint_autogen.dir
