@@ -25,7 +25,7 @@ class QAbstractButton;
 class QGraphicsView;
 QT_END_NAMESPACE
 
-//! [0]
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -108,6 +108,5 @@ private:
     QAction *fillAction;
     QAction *lineAction;
 };
-//! [0]
 
 #endif // MAINWINDOW_H

@@ -16,12 +16,11 @@ QT_END_NAMESPACE
 
 class Arrow;
 
-//! [0]
 class DiagramItem : public QGraphicsPolygonItem
 {
 public:
     enum { Type = UserType + 15 };
-    enum DiagramType { Step, Conditional, StartEnd, Io };
+    enum DiagramType { Step, Conditional, StartEnd, Io,Start,InStart };
 
     DiagramItem(DiagramType diagramType, QMenu *contextMenu, QGraphicsItem *parent = nullptr);
 
@@ -43,6 +42,5 @@ private:
     QMenu *myContextMenu;
     QList<Arrow *> arrows;
 };
-//! [0]
 
 #endif // DIAGRAMITEM_H

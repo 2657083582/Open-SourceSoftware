@@ -19,7 +19,6 @@ class QGraphicsTextItem;
 class QColor;
 QT_END_NAMESPACE
 
-//! [0]
 class DiagramScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -67,6 +66,5 @@ private:
     QColor myItemColor;
     QColor myLineColor;
 };
-//! [0]
 
 #endif // DIAGRAMSCENE_H

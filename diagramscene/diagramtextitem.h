@@ -10,7 +10,6 @@ QT_BEGIN_NAMESPACE
 class QGraphicsSceneMouseEvent;
 QT_END_NAMESPACE
 
-//! [0]
 class DiagramTextItem : public QGraphicsTextItem
 {
     Q_OBJECT
@@ -31,6 +30,5 @@ protected:
     void focusOutEvent(QFocusEvent *event) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 };
-//! [0]
 
 #endif // DIAGRAMTEXTITEM_H

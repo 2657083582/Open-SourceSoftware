@@ -8,7 +8,7 @@
 
 class DiagramItem;
 
-//! [0]
+
 class Arrow : public QGraphicsLineItem
 {
 public:
@@ -36,6 +36,5 @@ private:
     QPolygonF arrowHead;
     QColor myColor = Qt::black;
 };
-//! [0]
 
 #endif // ARROW_H
