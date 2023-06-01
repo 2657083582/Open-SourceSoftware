@@ -6,6 +6,7 @@
 #include <QPen>
 #include <QPainterPath>
 #include <QPolygon>
+#include <QColor>
 
 #include <QWidget>
 #include <QPoint>
@@ -36,7 +37,6 @@ class Chart_Base :public QWidget
     Q_OBJECT
     friend class FlowChart;
 private:
-
     static int magPointWidth;                   // Padding信息-磁力点宽度
     static int sizePointWidth;                  // Padding信息-大小点宽度
     static int magPointWidth1_2;                // Padding信息-磁力点一半宽度
@@ -88,6 +88,7 @@ private:
     virtual void updateMagPointLine();  // 更新磁力点上连线的位置信息
     void updateTextInfo();              // 更新显示文本的信息
 
+    void updateColor(const QColor &color);//
 
     virtual void paintChart(QPainter & p) = 0;  // 绘制图形
     void paintSizePoint(QPainter & p);          // 绘制大小点
@@ -271,8 +272,8 @@ protected:
     QPoint widgetStart;     // widget在画布上的起始位置：易变
     QPoint widgetEnd;       // widget在画布上的结束位置：易变
 
-    QPen paintChartDrawPen;     // 图形画笔
-    QBrush paintChartFillPen;   // 图形填充
+     QPen paintChartDrawPen;     // 图形画笔
+     QBrush paintChartFillPen;   // 图形填充
 
     static QPen paintDrawPen;       // 图形大小点、磁力点画笔
     static QBrush paintFillPen;     // 图形大小点、磁力点填充
@@ -350,6 +351,7 @@ public:
     friend QDataStream &operator>>(QDataStream &fin, Chart_Base &cb);           // 输入运算符重载
 
 signals:
+
     void sendThisClass(Chart_Base *,int x,int y);       // 发送自己给画布
 //    void hideThisClass();
     //void sendFlag(int f);

@@ -9,6 +9,9 @@ int Chart_Base::chartIDCount = 0;
 
 QPen Chart_Base::paintDrawPen  = QPen(QColor(150,80,80),pointLineWidth);
 QBrush Chart_Base::paintFillPen  = QBrush(QColor(255,255,255));
+//QPen Chart_Base::paintChartDrawPen  = QPen(QColor(150,80,80),pointLineWidth);
+//QBrush Chart_Base::paintChartFillPen  = QBrush(QColor(255,255,255));
+
 
 Chart_Base::Chart_Base(QWidget *parent, PaintChartType type, bool textType, bool mov, int mpc, int spc):QWidget(parent),magPoint(mpc),sizePoint(spc),movable(mov),chartText(textType)
 {
@@ -173,6 +176,7 @@ void Chart_Base::updatePaddingInfo()
     magPointWidth1_2 = magPointWidth>>1;
     sizePointWidth1_2 = sizePointWidth>>1;
     pointLineWidth1_2 = pointLineWidth>>1;
+
 }
 
 void Chart_Base::updateWidgetPosInof()
@@ -387,6 +391,11 @@ void Chart_Base::updateTextInfo()
                 chartText.textType2->move(chartText.textType2->x(),paintEnd.ry() - chartText.textType2->height());
         }
     }
+}
+
+void Chart_Base::updateColor(const QColor &color)
+{
+    paintChartDrawPen.setColor(color);
 }
 
 
@@ -788,6 +797,7 @@ void Chart_Base::applyWidthHeight()
     updateMagPointPath();
     updateMagPointLine();
     updateTextInfo();
+
 }
 //void Chart_Base::setSizePoint(const std::vector<QPoint> &p)
 //{
@@ -905,51 +915,58 @@ void Chart_Base::deleteThisChart()
 }
 void Chart_Base::saveStaticValue(QDataStream &fout)
 {
+    //only save num
     fout.writeRawData(reinterpret_cast<const char*>(&Chart_Base::magPointWidth),sizeof(int));
     fout.writeRawData(reinterpret_cast<const char*>(&Chart_Base::sizePointWidth),sizeof(int));
     fout.writeRawData(reinterpret_cast<const char*>(&Chart_Base::pointLineWidth),sizeof(int));
+
     //fout.writeRawData(reinterpret_cast<const char*>(&Chart_Base::chartIDCount),sizeof(int));
-    qDebug()<<magPointWidth<<" "<<sizePointWidth<<" "<<pointLineWidth<<" "<<chartIDCount;
+    qDebug()<<magPointWidth<<" "<<sizePointWidth<<" "<<pointLineWidth;
 }
 void Chart_Base::loadStaticValue(QDataStream &fin)
 {
     fin.readRawData(reinterpret_cast<char*>(&Chart_Base::magPointWidth),sizeof(int));
     fin.readRawData(reinterpret_cast<char*>(&Chart_Base::sizePointWidth),sizeof(int));
     fin.readRawData(reinterpret_cast<char*>(&Chart_Base::pointLineWidth),sizeof(int));
-    updatePaddingInfo();
+
     //fin.readRawData(reinterpret_cast<char*>(&Chart_Base::chartIDCount),sizeof(int));
-    qDebug()<<"static value:"<<magPointWidth<<" "<<sizePointWidth<<" "<<pointLineWidth<<" "<<chartIDCount;
+    updatePaddingInfo();
+    qDebug()<<"static value:"<<magPointWidth<<" "<<sizePointWidth<<" "<<pointLineWidth;
 }
 QDataStream &operator<<(QDataStream &fout,  const Chart_Base &cb)
 {
+
     fout.writeRawData(reinterpret_cast<const char*>(&cb.chartType),sizeof(PaintChartType));
     fout.writeRawData(reinterpret_cast<const char*>(&cb.ID),sizeof(int));
-    fout<<cb.chartText;//<<cb.magPoint;
+    //fout<<cb.chartText;//<<cb.magPoint;
     fout<<cb.paintStart<<cb.paintEnd<<cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen;
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.paintStart.rx()),sizeof(int));
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.paintEnd.rx()),sizeof(int));
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.widgetStart.rx()),sizeof(int));
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.widgetEnd.rx()),sizeof(int));
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.paintChartDrawPen),sizeof(QPen));
-//    fout.writeRawData(reinterpret_cast<char*>(&cb.paintChartFillPen),sizeof(QBrush));
     fout.writeRawData(reinterpret_cast<const char*>(&cb.movable),sizeof(bool));
-    qDebug()<<"Chart Base Info:"<<cb.paintStart<<cb.paintEnd<<cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen;
+    qDebug()<<"Chart Base Info:"<<cb.paintStart<<cb.paintEnd<<cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen <<"947";
     return fout;
 }
 QDataStream &operator>>(QDataStream &fin, Chart_Base &cb)
 {
     //fin.readRawData(reinterpret_cast<char*>(&cb.chartType),sizeof(PaintChartType));
+
     fin.readRawData(reinterpret_cast<char*>(&cb.ID),sizeof(int));
-    fin>>cb.chartText;//>>cb.magPoint;
+    //fin>>cb.chartText;//>>cb.magPoint;
     fin>>cb.paintStart>>cb.paintEnd>>cb.widgetStart>>cb.widgetEnd>>cb.paintChartDrawPen>>cb.paintChartFillPen;
-//    fin.readRawData(reinterpret_cast<char*>(&cb.paintStart.rx()),sizeof(int));
-//    fin.readRawData(reinterpret_cast<char*>(&cb.paintEnd.rx()),sizeof(int));
-//    fin.readRawData(reinterpret_cast<char*>(&cb.widgetStart.rx()),sizeof(int));
-//    fin.readRawData(reinterpret_cast<char*>(&cb.widgetEnd.rx()),sizeof(int));
-//    fin.readRawData(reinterpret_cast<char*>(&cb.paintChartDrawPen),sizeof(QPen));
-//    fin.readRawData(reinterpret_cast<char*>(&cb.paintChartFillPen),sizeof(QBrush));
     fin.readRawData(reinterpret_cast<char*>(&cb.movable),sizeof(bool));
-    qDebug()<<"Chart Base Info:"<<cb.paintStart<<cb.paintEnd<<cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen;
+
+    qDebug()<<"Chart Base Info:"<<cb.paintStart<<cb.paintEnd<<
+        cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen<<
+        "963"<<cb.movable;
+
+
+//    qDebug()<<"Chart Base Info:"<<cb.paintStart<<cb.paintEnd<<
+//        cb.widgetStart<<cb.widgetEnd<<cb.paintChartDrawPen<<cb.paintChartFillPen<<
+//        "963"<<cb.movable;
+//        cb.paintStart = QPoint(20,20);
+//        cb.paintEnd = QPoint(662,156);
+//        cb.widgetStart = QPoint(287,88);
+//        cb.widgetEnd = QPoint(929,224);
+//        cb.paintChartDrawPen = QPen(QColor(0,0,0),2);
+//        cb.paintChartFillPen = QBrush(QColor(255,255,255));
     return fin;
 }
 

@@ -369,19 +369,29 @@ bool FlowChart::saveFile(QString filePath)
     QDataStream fout(&file);
 
     Chart_Base::saveStaticValue(fout);
+    //now fout save basic information
     unsigned long long i;
     i = charts.size();
     fout.writeRawData(reinterpret_cast<const char*>(&i),sizeof(unsigned long long));
+    //qDebug()<<charts[0]->paintChartDrawPen<<charts[0]->paintChartFillPen<<" test why the infor will be zero";
     for(auto it = charts.begin(); it!=charts.end(); it++)
     {
         fout<<*(*it);
+        //first save
+        // there save chart chart information
+
     }
+
+    //qDebug()<<charts[0]->paintChartDrawPen<<charts[0]->paintChartFillPen<<" test why the infor will be zero";
+    // save line information
     i = line.size();
     fout.writeRawData(reinterpret_cast<const char*>(&i),sizeof(unsigned long long));
     for(auto it = line.begin(); it!=line.end(); it++)
     {
         fout<<*(*it)<<*(reinterpret_cast<const Chart_Line*>(*it));
+        //save line information
     }
+    qDebug()<<charts[0]->paintChartDrawPen<<charts[0]->paintChartFillPen<<" test why the infor will be zero";
     file.close();
     return true;
 }
@@ -401,7 +411,10 @@ bool FlowChart::loadFile(QString filePath)
     {
         PaintChartType tmp;
         Chart_Base *cb;
+        int j;
         fin.readRawData(reinterpret_cast<char*>(&tmp),sizeof(PaintChartType));
+        //fin.readRawData(reinterpret_cast<char*>(&j),sizeof(int));
+        //qDebug()<<i<<"there";
         switch(tmp)
         {
 
@@ -429,16 +442,24 @@ bool FlowChart::loadFile(QString filePath)
                 cb = nullptr;
             }break;
         }
-        cb->chartType = tmp;
+            cb->chartType = tmp;
         fin>>(*cb);
+            qDebug()<<"Chart Base Info:"<<cb->paintStart<<cb->paintEnd<<
+                cb->widgetStart<<cb->widgetEnd<<cb->paintChartDrawPen<<cb->paintChartFillPen<<
+                "flowchart"<<cb->movable;
         connect(cb,SIGNAL(sendThisClass(Chart_Base *, int,int)),this,SLOT(setSelecChart(Chart_Base *, int,int)));
         connect(cb,SIGNAL(setTypeChangeSize(ORIENTION)),this,SLOT(setTypeChangeSize(ORIENTION)));
         connect(cb,SIGNAL(setTypeCreateMagPoint(Chart_Base *,ORIENTION,int)),this,SLOT(setTypeCreateMagPoint(Chart_Base *,ORIENTION,int)));
+        qDebug()<<"In init,the color is"<<cb->paintChartDrawPen<< " "<<cb->paintChartFillPen;
+
+        qDebug()<<"emit color change";
         addChart(cb);
+
         cb->applyWidthHeight();
         cb->update();
         cb->show();
         chartMap[cb->getID()] = cb;
+
     }
     fin.readRawData(reinterpret_cast<char*>(&cnt),sizeof(unsigned long long));
     qDebug()<<"连线个数："<<cnt;
