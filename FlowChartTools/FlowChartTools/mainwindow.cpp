@@ -127,7 +127,7 @@ void MainWindow::sendSelChartFillColor()
 }
 void MainWindow::changeWindowTitle(const QString & title)
 {
-    QString tmp = QString("比图吧 - %1").arg(title);
+    QString tmp = QString("随手绘图 - %1").arg(title);
     this->setWindowTitle(tmp);
 }
 

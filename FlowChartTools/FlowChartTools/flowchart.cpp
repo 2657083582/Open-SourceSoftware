@@ -315,7 +315,7 @@ bool FlowChart::delChart(Chart_Base *&cb)
                 }
             }
 #endif
-            delete[] tmp;
+            delete tmp;
 
             return true;
         }
